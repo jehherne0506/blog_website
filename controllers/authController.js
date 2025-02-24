@@ -23,7 +23,7 @@ exports.register = async function(req,res){
     })
     await user.save()
     const token = jwt.sign({email},process.env.JWT_SECRET,{expiresIn:'24h'})
-    const link = `http://localhost:3000/auth/confirm-email/${token}`
+    const link = `https://blog-website-neb7.onrender.com/auth/confirm-email/${token}`
     await send_mail(link,username,email,'register')
     res.render('email-confirmation',{username:username,email:email})
 }
@@ -58,7 +58,7 @@ exports.reset_password = async function(req,res){
     if(user){
         const username = user.username
         const token = jwt.sign({email},process.env.JWT_SECRET,{expiresIn:'24h'})
-        const link = `http://localhost:3000/auth/reset_password/${token}`
+        const link = `https://blog-website-neb7.onrender.com/auth/reset_password/${token}`
         try {
             await send_mail(link, username, email, 'reset');
             console.log("Email successfully sent to:", email);
