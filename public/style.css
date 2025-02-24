@@ -158,14 +158,10 @@ section{
 }
 
 #username, #email, #password, #title, #content, #image{
-    width: 100%;
-    max-width: 200px;
+    width: 45vw;
     margin-bottom: 3%;
 }
 
-#title, #content, #image{
-    max-width: 220px;
-}
 
 .label_rl{
     margin-bottom: 1%;
@@ -227,9 +223,28 @@ section{
     }
 }
 
+@media only screen and (max-width: 767px){
+    .bottom_img{
+        margin-bottom: 3%;
+    }
+    h1{
+        font-size: 1.5rem;
+    }
+}
+
 @media only screen and (min-width: 420px){
     #username, #email, #password{
         margin-left: 2%;
+    }
+}
+
+@media only screen and (min-width: 380px){
+    #username, #email, #password, #title, #content, #image{
+        width: 25vw;
+        margin-bottom: 3%;
+    }
+    #title_label{
+        width: 100%;
     }
 }
 
