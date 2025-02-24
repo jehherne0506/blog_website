@@ -204,11 +204,25 @@ section{
     display: block;
 }
 
+.responsive{
+    font-size: 2vw;
+}
+
+.resize_img{
+    max-width: 80vw;
+}
+
 @media only screen and (max-width: 1000px){
     #welcome{
         display: none;
     }
     .row{
+        text-align: center;
+    }
+    .responsive{
+        font-size: 5vw;
+    }
+    .relate_text{
         text-align: center;
     }
 }

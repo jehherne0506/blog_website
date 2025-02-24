@@ -5,22 +5,24 @@
         <li class="nav-item"><a href="/auth/login" class="nav-link">Switch Account</a></li>
       </ul>
   </header>
-    <a href="/" style="text-decoration: none;color: inherit;"><i class="fa-solid fa-circle-arrow-left fa-2xl"></i></a>
+    <a href="/" style="text-decoration: none;color: inherit;"><i class="fa-solid fa-circle-arrow-left responsive"></i></a>
     <main id="blog_view">
         <section>
             <h1><%= blog.title %></h1>
             <p id="content"><%= blog.content %></p>
-            <img src="/image/<%= blog.image %>">
+            <% if(blog.image) {%>
+            <img class="resize_img" src="/image/<%= blog.image %>">
+            <% } %>
             <p>Author: <%= blog.author.username %>, <%= blog.author.email %></p>
             <div class="like_view">
                 <div class="m-r-1">
                   <form method="post" action="" class="one_line">
-                      <button type="button" style="background: none; border: none; cursor: pointer;" onclick="updateLikeCount('<%= blog._id %>',)"><i id="like_button_<%= blog._id %>" class="fa-solid fa-thumbs-up fa-2xl"W></i></button>
+                      <button type="button" style="background: none; border: none; cursor: pointer;" onclick="updateLikeCount('<%= blog._id %>',)"><i id="like_button_<%= blog._id %>" class="fa-solid fa-thumbs-up responsive"W></i></button>
                       <p class="blog_text third_info" id="like_count_<%= blog._id %>"><%= blog.like_user.length %></p>
                   </form>
                 </div> 
                 <div class="one_line">
-                    <i class="fa-solid fa-eye fa-2xl"></i>
+                    <i class="fa-solid fa-eye responsive"></i>
                     <p class="blog_text third_info"><%= blog.view_user.length %></p>
                 </div> 
             </div>

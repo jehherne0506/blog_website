@@ -21,12 +21,12 @@
               <div class="like_view">
                 <div class="m-r-1">
                   <form method="post" action="" class="one_line">
-                      <button type="button" style="background: none; border: none; cursor: pointer;" onclick="updateLikeCount('<%= blog._id %>',)"><i id="like_button_<%= blog._id %>" class="fa-solid fa-thumbs-up fa-2xl"W></i></button>
+                      <button type="button" style="background: none; border: none; cursor: pointer;" onclick="updateLikeCount('<%= blog._id %>',)"><i id="like_button_<%= blog._id %>" class="fa-solid fa-thumbs-up responsive"W></i></button>
                       <p class="blog_text third_info" id="like_count_<%= blog._id %>"><%= blog.like_user.length %></p>
                   </form>
                 </div> 
                 <div class="one_line">
-                  <i class="fa-solid fa-eye fa-2xl"></i>
+                  <i class="fa-solid fa-eye responsive"></i>
                   <p class="blog_text third_info"><%= blog.view_user.length %></p>
                 </div> 
                 </div>
@@ -59,7 +59,7 @@
                         <% } %>
                       
                         <div class="col-lg-8">
-                          <h6 class="mb-0"><%= blog.title %></h6>
+                          <h6 class="mb-0 relate_text"><%= blog.title %></h6>
                           <small class="text-body-secondary"><%= blog.created_at.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) %></small>
                         </div>
                       </a>
@@ -75,7 +75,7 @@
                       <img src="/image/<%= all_blogs[i].image %>" width="100%" height="96">
                     <% } %>
                     <div class="col-lg-8">
-                      <h6 class="mb-0"><%= all_blogs[i].title %></h6>
+                      <h6 class="mb-0 relate_text"><%= all_blogs[i].title %></h6>
                       <small class="text-body-secondary"><%= all_blogs[i].created_at.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) %></small>
                     </div>
                   </a>
