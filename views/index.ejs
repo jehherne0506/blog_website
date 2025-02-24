@@ -1,0 +1,113 @@
+    <%- include('header') -%>
+    <ul class="nav nav-pills">
+        <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="/blog/compose" class="nav-link">Compose</a></li>
+        <li class="nav-item"><a href="/auth/login" class="nav-link">Switch Account</a></li>
+      </ul>
+  </header>
+  
+    <div class="row g-5">
+        <div class="col-md-8">
+            <% sort_blogs.forEach(blog=>{ %>
+            <article class="blog-post">
+            <h2 id="brand" class="display-5 link-body-emphasis mb-1"><%= blog.title %></h2>
+            <p class="blog-post-meta"><%= blog.created_at.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) %> by <%= blog.author.username %></p>
+            <div>
+              <p class="blog_text"><%= blog.content.substring(0,1000) %></p>
+              <a id="auto_a" href="/blog/view/<%= blog._id %>">...more</a>
+            </div>
+            <br>
+            <div class="like_view">
+              <div class="m-r-1">
+                <form method="post" action="" class="one_line">
+                    <button type="button" style="background: none; border: none; cursor: pointer;" onclick="updateLikeCount('<%= blog._id %>',)"><i id="like_button_<%= blog._id %>" class="fa-solid fa-thumbs-up fa-2xl"W></i></button>
+                    <p class="blog_text third_info" id="like_count_<%= blog._id %>"><%= blog.like_user.length %></p>
+                </form>
+              </div> 
+              <div class="one_line">
+                <i class="fa-solid fa-eye fa-2xl"></i>
+                <p class="blog_text third_info"><%= blog.view_user.length %></p>
+              </div> 
+              </div>
+              </article>
+            <% }) %>
+    
+   
+    
+        </div>
+    
+        <div class="col-md-4">
+          <div class="position-sticky" style="top: 2rem;">
+            <div class="p-4 mb-3 bg-body-tertiary rounded">
+              <h4 class="fst-italic">About</h4>
+              <p class="mb-0">The FUN Blog is a vibrant space where creativity, entertainment, and insightful discussions come together. Whether you love thought-provoking articles, humor-filled stories, or the latest trends, this blog has something for everyone. Our passionate writers share unique perspectives, exciting ideas, and engaging content that keeps readers coming back for more. From lifestyle tips to deep dives into pop culture, The FUN Blog is your go-to destination for inspiration and enjoyment. We believe in making every post an experience—interactive, informative, and, most importantly, fun! Join us on this journey of discovery, laughter, and endless curiosity. Happy reading! 🎉</p>
+            </div>
+    
+            <div>
+              <h4 class="fst-italic">Recent posts</h4>
+              <ul class="list-unstyled">
+                <% if(all){ %>
+                  <% all_blogs.forEach(blog=>{ %>
+                    <li>
+                      <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="/blog/view/<%= blog._id %>">
+                        <% if(blog.image===null){ %>
+                          <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+                        <% } else{ %> 
+                          <img src="/uploads/<%= blog.image %>" width="100%" height="96">
+                        <% } %>
+                      
+                        <div class="col-lg-8">
+                          <h6 class="mb-0"><%= blog.title %></h6>
+                          <small class="text-body-secondary"><%= blog.created_at.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) %></small>
+                        </div>
+                      </a>
+                    </li>
+                  <% }) %>
+                <% } else{ %>
+                  <% for(let i=0;i<3;i++){ %>
+                <li>
+                  <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="/blog/view/<%= all_blogs[i]._id %>">
+                    <% if(all_blogs[i].image===null){ %>
+                      <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+                    <% } else{ %>
+                      <img src="/image/<%= all_blogs[i].image %>" width="100%" height="96">
+                    <% } %>
+                    <div class="col-lg-8">
+                      <h6 class="mb-0"><%= all_blogs[i].title %></h6>
+                      <small class="text-body-secondary"><%= all_blogs[i].created_at.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) %></small>
+                    </div>
+                  </a>
+                </li>
+                <% } %>
+                <% } %>
+
+            <div class="p-4">
+              <h4 class="fst-italic">Elsewhere</h4>
+              <ol class="list-unstyled">
+                <li><a href="https://github.com/jehherne0506" target="_blank">GitHub</a></li>
+                <li><a href="https://www.instagram.com/jehherne0506/" target="_blank">Instagram</a></li>
+                <li><a href="https://www.facebook.com/jehherne.jackyeoh" target="_blank">Facebook</a></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="/index.js"></script>
+    <script>
+        try{
+            const blogs = <%- JSON.stringify(all_blogs) %>;
+        window.onload = function() { 
+            blogs.forEach(blog=>{
+                console.log(blog._id)
+                checkLikeCount(blog._id)
+            })
+        };
+        } catch(err){
+            console.log(err)
+        }
+    </script>
+</body>
+</html>

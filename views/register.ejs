@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Blog</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form method="post" action="">
+        <% if (found_username){ %>
+            <h2>This Username is Taken</h2>
+        <% } %>
+        <% if (found_email){ %>
+            <h2>This email is registered</h2>
+        <% } %>
+        <div class="field">
+            <label for="username">Username</label>
+            <input type="text" name="username" minlength="3" required>
+        </div>
+        <div class="field">
+            <label for="email">Email</label>
+            <input type="email" name="email" required>
+        </div>
+        <div class="field">
+            <label for="password">Password</label>
+            <input type="password" name="password" minlength="8" required>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <a href="/auth/login">Login</a>
+</body>
+</html>

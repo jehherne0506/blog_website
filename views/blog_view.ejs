@@ -1,0 +1,65 @@
+    <%- include('header') -%>
+    <ul class="nav nav-pills">
+        <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="/blog/compose" class="nav-link">Compose</a></li>
+        <li class="nav-item"><a href="/auth/login" class="nav-link">Switch Account</a></li>
+      </ul>
+  </header>
+    <a href="/" style="text-decoration: none;color: inherit;"><i class="fa-solid fa-circle-arrow-left fa-2xl"></i></a>
+    <main id="blog_view">
+        <section>
+            <h1><%= blog.title %></h1>
+            <p id="content"><%= blog.content %></p>
+            <p>Author: <%= blog.author.username %>, <%= blog.author.email %></p>
+            <div class="like_view">
+                <div class="m-r-1">
+                  <form method="post" action="" class="one_line">
+                      <button type="button" style="background: none; border: none; cursor: pointer;" onclick="updateLikeCount('<%= blog._id %>',)"><i id="like_button_<%= blog._id %>" class="fa-solid fa-thumbs-up fa-2xl"W></i></button>
+                      <p class="blog_text third_info" id="like_count_<%= blog._id %>"><%= blog.like_user.length %></p>
+                  </form>
+                </div> 
+                <div class="one_line">
+                    <i class="fa-solid fa-eye fa-2xl"></i>
+                    <p class="blog_text third_info"><%= blog.view_user.length %></p>
+                </div> 
+            </div>
+        </section>
+        <section>
+            <h2>Comment</h2>
+            <div>
+                <form method="post" action="">
+                    <input type="hidden" value="<%= blog._id %>" name="blog_id">
+                    <div class="comment">
+                        <div class="field">
+                            <input type="text" id="comment" name="comment" placeholder="Share Your Thoughts!" required>
+                        </div>
+                        <button type="submit" class="submit"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </form>
+            </div>
+            <div class="all_comment">
+                <% if(blog.comment){ %>
+                <% blog.comment.forEach(each_comment=>{ %>
+                    <div class="one_line">
+                        <p><%= each_comment.user.username %>:</h3>
+                        <p class="user_comment"><%= each_comment.text %></p>
+                    </div>
+                <% }) %>
+                <% } %>
+            </div>
+        </section>
+    </main>
+    <script src="/index.js"></script>
+    <script>
+        try{
+            const blogs = <%- JSON.stringify(blog) %> ;
+        window.onload = function() { 
+                checkLikeCount(blogs._id)
+            }
+        }
+        catch(err){
+            console.log(err)
+        }
+    </script>
+</body>
+</html>

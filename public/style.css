@@ -1,0 +1,138 @@
+html, body {
+    min-height: 100vh;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #212529;
+    background-size: cover;
+    margin: 0 5% 0 5%;
+    color: white;
+}
+
+.title{
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-size: 2.25rem;
+}
+
+.d-flex{
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    background-color: #FF1493;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #FF1493;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link:hover {
+    background-color: #FF007F;
+    box-shadow: 0 0 15px #FF007F;
+}
+
+.justify-content-center{
+    justify-content: space-between !important;
+}
+
+a{
+    color: white;
+}
+
+.p-4{
+    padding: 0% !important;
+}
+
+.mb-0, #blog_text{
+    text-align: justify;
+}
+
+.blog_text{
+    display: inline;
+    margin-bottom: 0;
+}
+
+#auto_a{
+    color: #007bff;
+}
+
+.one_line{
+    display: flex;
+    align-items: center;
+}
+
+.third_info{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 8%;
+}
+
+button:focus{
+    outline: none;
+    border: none;
+}
+
+.like_view{
+    display: flex;
+}
+
+.m-r-1{
+    margin-right: 3%;
+}
+
+.col-md-4{
+    margin-bottom: 5%;
+}
+
+.blog-post{
+    margin-bottom: 5%;
+}
+
+#blog_view{
+    margin-top: 3%;
+}
+
+#content{
+    text-align: justify;
+}
+
+.comment{
+    display: flex;
+}
+
+#comment, .submit{
+    border: none;
+}
+
+section{
+    margin-bottom: 5%;
+}
+
+.all_comment{
+    margin-top: 3%;
+}
+
+.one_line{
+    display: flex;
+}
+
+.user_comment{
+    padding-left: 1%;
+}
+
+@media only screen and (max-width: 1000px){
+    #welcome{
+        display: none;
+    }
+    .row{
+        text-align: center;
+    }
+}
+
+
+
