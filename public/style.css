@@ -223,6 +223,15 @@ section{
     }
 }
 
+@media only screen and (max-width: 400px){
+    .responsive{
+        font-size: 8vw;
+    }
+    .fa-eye{
+        margin-left: 10%;
+    }
+}
+
 @media only screen and (max-width: 767px){
     .bottom_img{
         margin-bottom: 3%;
