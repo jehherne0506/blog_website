@@ -38,6 +38,7 @@ app.get('/',verify_user,async function(req,res){
     else{
         all = false
     }
+    console.log(sort_blogs)
     res.render('index',{user:req.user.username,sort_blogs:sort_blogs,all_blogs:all_blogs,all:all})
 })
 

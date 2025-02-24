@@ -8,29 +8,31 @@
   
     <div class="row g-5">
         <div class="col-md-8">
+          <% if(sort_blogs){ %>
             <% sort_blogs.forEach(blog=>{ %>
-            <article class="blog-post">
-            <h2 id="brand" class="display-5 link-body-emphasis mb-1"><%= blog.title %></h2>
-            <p class="blog-post-meta"><%= blog.created_at.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) %> by <%= blog.author.username %></p>
-            <div>
-              <p class="blog_text"><%= blog.content.substring(0,1000) %></p>
-              <a id="auto_a" href="/blog/view/<%= blog._id %>">...more</a>
-            </div>
-            <br>
-            <div class="like_view">
-              <div class="m-r-1">
-                <form method="post" action="" class="one_line">
-                    <button type="button" style="background: none; border: none; cursor: pointer;" onclick="updateLikeCount('<%= blog._id %>',)"><i id="like_button_<%= blog._id %>" class="fa-solid fa-thumbs-up fa-2xl"W></i></button>
-                    <p class="blog_text third_info" id="like_count_<%= blog._id %>"><%= blog.like_user.length %></p>
-                </form>
-              </div> 
-              <div class="one_line">
-                <i class="fa-solid fa-eye fa-2xl"></i>
-                <p class="blog_text third_info"><%= blog.view_user.length %></p>
-              </div> 
+              <article class="blog-post">
+              <h2 id="brand" class="display-5 link-body-emphasis mb-1"><%= blog.title %></h2>
+              <p class="blog-post-meta"><%= blog.created_at.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) %> by <%= blog.author.username %></p>
+              <div>
+                <p class="blog_text"><%= blog.content.substring(0,1000) %></p>
+                <a id="auto_a" href="/blog/view/<%= blog._id %>">...more</a>
               </div>
-              </article>
-            <% }) %>
+              <br>
+              <div class="like_view">
+                <div class="m-r-1">
+                  <form method="post" action="" class="one_line">
+                      <button type="button" style="background: none; border: none; cursor: pointer;" onclick="updateLikeCount('<%= blog._id %>',)"><i id="like_button_<%= blog._id %>" class="fa-solid fa-thumbs-up fa-2xl"W></i></button>
+                      <p class="blog_text third_info" id="like_count_<%= blog._id %>"><%= blog.like_user.length %></p>
+                  </form>
+                </div> 
+                <div class="one_line">
+                  <i class="fa-solid fa-eye fa-2xl"></i>
+                  <p class="blog_text third_info"><%= blog.view_user.length %></p>
+                </div> 
+                </div>
+                </article>
+              <% }) %>
+          <% } %>
     
    
     

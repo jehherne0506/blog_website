@@ -6,7 +6,7 @@ exports.compose = async function(req,res){
         author: await User.findOne({'_id':req.body.user,}),
         title: req.body.title,
         content: req.body.content,
-        image: req.file.filename
+        image: req.file ? req.file.filename : null
     })
     console.log(req.file); 
     console.log(req.body);
