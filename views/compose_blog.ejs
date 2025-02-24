@@ -5,22 +5,25 @@
     <li class="nav-item"><a href="/auth/login" class="nav-link">Switch Account</a></li>
   </ul>
 </header>
-    <h1>Compose Your Blog!</h1>
-    <form method="post" action="" enctype="multipart/form-data">
-        <div class="field">
-            <label for="title">Title</label>
-            <input type="text" id="title" name="title" required>
-        </div>
-        <div class="field">
-            <label for="content">Content</label>
-            <textarea rows="5" cols="50" id="content" name="content" required></textarea>
-        </div>
-        <div class="field">
-            <label for="image">Image (Optional)</label>
-            <input type="file" id="image" name="image">
-        </div>
-        <input type="hidden" name="user" value="<%= id %>">
-        <button type="submit">Submit</button>
-    </form>
+    <main class="container_green">
+        <h1>Compose Your Blog!</h1>
+        <form class="regis_login" method="post" action="" enctype="multipart/form-data">
+
+            <div class="field">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="field">
+                <label for="content" class="compose">Content</label>
+                <textarea rows="5" cols="50" id="content" name="content" required></textarea>
+            </div>
+            <div class="field">
+                <label for="image" class="compose">Image (Optional)</label>
+                <input type="file" id="image" name="image">
+            </div>
+            <input type="hidden" name="user" value="<%= id %>">
+            <button id="bc" type="submit">Submit</button>
+        </form>
+    </main>
 </body>
 </html>

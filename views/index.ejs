@@ -15,7 +15,7 @@
               <p class="blog-post-meta"><%= blog.created_at.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) %> by <%= blog.author.username %></p>
               <div>
                 <p class="blog_text"><%= blog.content.substring(0,1000) %></p>
-                <a id="auto_a" href="/blog/view/<%= blog._id %>">...more</a>
+                <a class="auto_a" href="/blog/view/<%= blog._id %>">...more</a>
               </div>
               <br>
               <div class="like_view">
@@ -55,7 +55,7 @@
                         <% if(blog.image===null){ %>
                           <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
                         <% } else{ %> 
-                          <img src="/uploads/<%= blog.image %>" width="100%" height="96">
+                          <img src="/image/<%= blog.image %>" width="100%" height="96">
                         <% } %>
                       
                         <div class="col-lg-8">
