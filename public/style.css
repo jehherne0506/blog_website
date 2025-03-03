@@ -208,6 +208,11 @@ section{
     max-width: 80vw;
 }
 
+#title_label{
+    display: block;
+}
+
+
 @media only screen and (max-width: 1000px){
     #welcome{
         display: none;
